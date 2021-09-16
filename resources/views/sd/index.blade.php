@@ -10,8 +10,6 @@
     </div>
 
     <div class="section-body">
-    <h2 class="section-title">strategic direction</h2>
-    <p class="section-lead">Table of all strategic direction.</p>
     <div class="row">
         <div class="col-12">
         <div class="card">

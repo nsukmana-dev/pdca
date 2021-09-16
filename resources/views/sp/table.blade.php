@@ -72,12 +72,13 @@
             <td></td>
         </tr>
         @php
-            $no = 2;
+            $no = "2";
+            $ab = "A";
         @endphp
         @foreach ($spdetail as $item)
         <tr>
-            <td>{{$no++}}</td>
-            <td></td>
+            <td align="right" class="text-light">{{$no++}}</td>
+            <td align="right">{{$ab++}}</td>
             <td>{{$item->strategic_priority}}</td>
             <td>{{$item->weight}}%</td>
             <td>{{$item->key_result}}</td>
@@ -93,7 +94,9 @@
 </table>
   <script>
     $(document).ready(function() {
-      $('#example2').DataTable();
+      $('#example2').DataTable({
+        "orderCellsTop": true
+      });
     });
   </script>
 </body>

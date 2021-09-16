@@ -19,6 +19,16 @@ class AuthController extends Controller
             //Login Success
             return redirect()->route('home');
         }
+        // $password = Hash::make('admin123');
+        // User::create([
+        //     'nik' => '010710',
+        //     'username' => 'michelle',
+        //     'fullname' => 'Michelle Jessica',
+        //     'email' => 'michelle.jessica@gs.astra.co.id',
+        //     'password' => $password = Hash::make('admin123'),
+        //     'user_level' => 1,
+        //     'is_actived' => 1
+        // ]);
         return view('auth.login');
     }
   

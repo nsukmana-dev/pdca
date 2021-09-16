@@ -46,10 +46,9 @@
                 <label>Year</label>
                 @php
                     $year = date("Y");
-                    echo $year;
                 @endphp
                 <select name="year" id="year" required class="form-control">
-                @for ($i = 1900; $i <= $year; $i++)
+                @for ($i = $year; $i <= $year+5; $i++)
                     <option value="{{ $i }}" {{ $year == $i ? 'selected' : '' }}>{{ $i }}</option>
                 @endfor
                 </select>
@@ -60,7 +59,7 @@
                 </div>
                 <div class="form-group">
                 <label>Weight</label>
-                <input name="weight" value="{{ old('weight') }}" type="text" class="form-control" required="">
+                <input name="weight" value="{{ old('weight') }}" type="number" step="0.25" value="0.00" class="form-control" required="">
                 </div>
                 <div class="form-group">
                 <label>Active</label>

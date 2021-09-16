@@ -3,9 +3,9 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-    <h1>Strategic Priority Create</h1>
+    <h1>Strategic priority create</h1>
     <div class="section-header-breadcrumb">
-        <a href="{{ url('strategic_priority') }}"><span class="badge badge-success">Strategic Priority Home</span></a>
+        <a href="{{ url('strategic_priority') }}"><span class="badge badge-success">Strategic priority home</span></a>
     </div>
     </div>
 
@@ -46,7 +46,6 @@
                     <label>Year</label>
                     @php
                         $year = date("Y");
-                        echo $year;
                     @endphp
                     <select name="year" id="year" required class="form-control">
                     @for ($i = 1900; $i <= $year; $i++)
@@ -73,7 +72,7 @@
                         </select>
                         </div>
                     <div class="form-group">
-                    <label>Remain</label>
+                    <label>Remain (%)</label>
                     <input name="remain" value="{{ old('remain') }}" id="remain" type="number" readonly class="form-control" required="">
                     <input name="remain2" value="" id="remain2" type="hidden" readonly class="form-control">
                     </div>
@@ -91,11 +90,11 @@
                     <div class="form-row">
                         <div class="col-4">
                           <label class="sr-only" for="inlineFormInput">Strategic priority</label>
-                          <input name="strategic_priority[]" type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Strategic priority" required>
+                          <input name="strategic_priority[]" type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Strategic priority" autocomplete="off" required>
                         </div>
                         <div class="col-3">
                           <label class="sr-only" for="inlineFormInput">Key Result</label>
-                          <input name="key_result[]" type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Input Key Result">
+                          <input name="key_result[]" type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Input Key Result" autocomplete="off">
                         </div>
                         <div class="col-2">
                           <label class="sr-only" for="inlineFormInput">Weight</label>
@@ -130,11 +129,11 @@
         $html = '<div class="form-row" id="del'+$norow+'">';
         $html += '<div class="col-4">';
         $html += '<label class="sr-only" for="inlineFormInput">Strategic priority</label>';
-        $html += '<input name="strategic_priority[]" type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Strategic priority" required>';
+        $html += '<input name="strategic_priority[]" type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Strategic priority" required autocomplete="off">';
         $html += '</div>';
         $html += '<div class="col-3">';
         $html += '<label class="sr-only" for="inlineFormInput">Key Result</label>';
-        $html += '<input name="key_result[]" type="text" class="form-control mb-2" id="inlineFormInput" min="0" placeholder="Input Key Result">';
+        $html += '<input name="key_result[]" type="text" class="form-control mb-2" id="inlineFormInput" min="0" placeholder="Input Key Result" autocomplete="off">';
         $html += '</div>';
         $html += '<div class="col-2">';
         $html += '<label class="sr-only" for="inlineFormInput">Weight</label>';

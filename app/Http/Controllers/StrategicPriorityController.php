@@ -18,11 +18,11 @@ class StrategicPriorityController extends Controller
     public function index()
     {
         $sp = DB::table('strategic_priorities')
-        ->join('divisions', 'strategic_priorities.div_id', '=', 'divisions.id')
+        ->join('divisions', 'strategic_priorities.div_id', '=', 'divisions.div_id')
         ->join('strategic_directions', 'strategic_priorities.sd_id', '=', 'strategic_directions.id')
         ->select('strategic_priorities.*', 'divisions.div_name', 'strategic_directions.strategic_direction')
         ->get();
-        // dd($sp);
+        //  dd($sp);
         return view('sp.index')->with(['sp' => $sp]);
     }
 
@@ -136,7 +136,7 @@ class StrategicPriorityController extends Controller
     {
         $id = $request['id'];
         $sp = DB::table('strategic_priorities')
-        ->join('divisions', 'strategic_priorities.div_id', '=', 'divisions.id')
+        ->join('divisions', 'strategic_priorities.div_id', '=', 'divisions.div_id')
         ->join('strategic_directions', 'strategic_priorities.sd_id', '=', 'strategic_directions.id')
         ->select('strategic_priorities.*', 'divisions.div_name', 'strategic_directions.strategic_direction')
         ->where('strategic_priorities.id', '=', $id)

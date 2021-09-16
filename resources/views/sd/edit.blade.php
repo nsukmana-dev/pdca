@@ -5,7 +5,7 @@
     <div class="section-header">
     <h1>Strategic direction update</h1>
     <div class="section-header-breadcrumb">
-        <a href="{{ url('strategic_direction') }}"><span class="badge badge-success">Strategic direction Home</span></a>
+        <a href="{{ url('strategic_direction') }}"><span class="badge badge-success">Strategic direction home</span></a>
     </div>
     </div>
 
@@ -46,7 +46,6 @@
                     <label>Year</label>
                     @php
                         $year = date("Y");
-                        echo $year;
                     @endphp
                     <select name="year" id="year" required class="form-control">
                     @for ($i = 1900; $i <= $year; $i++)

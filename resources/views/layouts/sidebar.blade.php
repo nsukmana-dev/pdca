@@ -1,21 +1,14 @@
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="{{ url('/') }}">PDCA</a>
+      <a href="{{ url('/') }}">PDCA KPI Portal</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
-      <a href="{{ url('/') }}">PDCA</a>
+      <img class="d-inline-block" width="32px" height="30.61px" src="{{ asset('img/logo/logo3.png') }}" alt="">
     </div>
     <ul class="sidebar-menu">
-        <li><a class="nav-link text-info" href="{{ url('/') }}"><i class="fas fa-home"></i> <span>Home</span></a></li>
-        <li class="menu-header text-info">Master</li>
-        <li id="nav-master" class="nav-item dropdown">
-          <a href="#" class="nav-link has-dropdown text-info"><i class="fas fa-book"></i><span>Master</span></a>
-          <ul class="dropdown-menu">
-            <li id="nav-master-division"><a class="nav-link" href="{{ url('master/division') }}">Division</a></li>
-            <li id="nav-master-departemen"><a class="nav-link" href="{{ url('master/departemen') }}">Departemen</a></li>
-          </ul>
-        </li>
+        <li><a class="nav-link text-default" href="{{ url('/') }}"><i class="fas fa-home"></i> <span>Home</span></a></li>
+        
         {{-- <li class="menu-header text-danger">Master</li> --}}
         {{-- <li id="nav-master" class="nav-item dropdown">
           <a href="#" class="nav-link has-dropdown text-danger"><i class="fas fa-book"></i><span>Master</span></a>
@@ -39,27 +32,34 @@
           </ul>
         </li> --}}
 
-        <li class="menu-header text-info">User</li>
+        {{-- <li class="menu-header text-default">User</li>
         <li id="nav-user" class="nav-item dropdown">
-          <a href="#" class="nav-link has-dropdown text-info"><i class="fas fa-users"></i><span>User</span></a>
+          <a href="#" class="nav-link has-dropdown text-default"><i class="fas fa-users"></i><span>User</span></a>
           <ul class="dropdown-menu">
-            {{-- <li id="nav-user-person"><a class="nav-link" href="{{ url('user/person') }}">Person</a></li>
+            <li id="nav-user-person"><a class="nav-link" href="{{ url('user/person') }}">Person</a></li>
             <li id="nav-user-usertype"><a class="nav-link" href="{{ url('user/usertype') }}">User Type</a></li>
-            <li id="nav-user-usertypemodule"><a class="nav-link" href="{{ url('user/usertypemodule') }}">User Type Module</a></li> --}}
+            <li id="nav-user-usertypemodule"><a class="nav-link" href="{{ url('user/usertypemodule') }}">User Type Module</a></li>
             <li id="nav-user-useraccount"><a class="nav-link" href="{{ url('user/useraccount') }}">User Account</a></li>
           </ul>
-        </li>
+        </li> --}}
 
-        <li class="menu-header text-info">Strategic Direction</li>
+        <li class="menu-header text-default">Strategic Direction</li>
         <li id="nav-strategic_direction" class="nav-item dropdown">
-          <a href="{{ url('strategic_direction') }}" class="text-info"><i class="fas fa-shopping-basket"></i><span>Strategic Direction</span></a>
+          <a href="{{ url('strategic_direction') }}" class="text-default"><i class="fas fa-shopping-basket"></i><span>Strategic Direction</span></a>
         </li>
 
-        <li class="menu-header text-info">Strategic Priority</li>
+        <li class="menu-header text-default">Strategic Priority</li>
         <li id="nav-strategic_priority" class="nav-item dropdown">
-          <a href="{{ url('strategic_priority') }}" class="text-info"><i class="fas fa-address-card"></i><span>Strategic Priority</span></a>
+          <a href="{{ url('strategic_priority') }}" class="text-default"><i class="fas fa-address-card"></i><span>Strategic Priority</span></a>
         </li>
-
+        <li class="menu-header text-default">Master</li>
+        <li id="nav-master" class="nav-item dropdown">
+          <a href="#" class="nav-link has-dropdown text-default"><i class="fas fa-book"></i><span>Master</span></a>
+          <ul class="dropdown-menu">
+            <li id="nav-master-division"><a class="nav-link" href="{{ url('master/division') }}">Division</a></li>
+            <li id="nav-master-departemen"><a class="nav-link" href="{{ url('master/departemen') }}">Departemen</a></li>
+          </ul>
+        </li>
         {{-- <li class="menu-header text-primary">Product</li>
         <li id="nav-product" class="nav-item dropdown">
           <a href="#" class="nav-link has-dropdown text-info"><i class="fas fa-shopping-basket"></i><span>Product</span></a>
