@@ -126,10 +126,13 @@ class StrategicPriorityController extends Controller
 
     public function destroy($id)
     {
-        $delete = Country::find($id);
+        $delete = StrategicPriority::find($id);
         $delete->delete();
 
-        return redirect('master/country/')->with('message', 'Success delete this country');
+        $delete2 = StrategicPriorityDetail::where('sp_id', $id);
+        $delete2->delete();
+
+        return redirect('strategic_priority')->with('message', 'Success delete this strategic priority & detail');
     }
 
     public function finddetail(Request $request)

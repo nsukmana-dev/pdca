@@ -28,7 +28,7 @@
                 <th>Div</th>
                 <th>Year</th>
                 <th>Active</th>
-                {{-- <th>Action</th> --}}
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -50,10 +50,10 @@
                 <td>{{$row->div_name}}</td>
                 <td>{{$row->year}}</td>
                 <td>Y</td>
-                {{-- <td>
-                    <a href="{{ url('strategic_priority/edit/'.$row->id.'') }}" class="btn btn-primary btn-sm">Edit</a> &nbsp; 
-                    <a href="{{ url('strategic_priority/destroy/'.$row->id.'') }}" class="btn btn-danger delete-confirm btn-sm">Delete</a>
-                </td> --}}
+                <td>
+                    {{-- <a href="{{ url('strategic_priority/edit/'.$row->id.'') }}" class="btn btn-primary btn-sm">Edit</a> &nbsp;  --}}
+                    <a href="{{ url('strategic_priority/destroy/'.$row->id.'') }}" class="btn btn-danger delete-confirm btn-sm"><i class="fas fa-trash"></i></a>
+                </td>
             </tr>            
         @endforeach
         </tbody>

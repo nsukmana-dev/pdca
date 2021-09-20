@@ -55,6 +55,13 @@
   <!-- Page Specific JS File -->
   <script src="{{ asset('assets/js/page/index.js') }}"></script>
   <script src="{{ asset('assets/js/page/modules-datatables.js') }}"></script>  
+  <style>
+    body {
+      /* -moz-transform: scale(0.8, 0.8); */
+      /* zoom: 0.8; */
+      /* zoom: 80%; */
+    }
+  </style>
 </head>
 
 <body> 

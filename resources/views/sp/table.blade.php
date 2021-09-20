@@ -40,7 +40,7 @@
 </head>
 <body>
     
-<table id="example2" class="display" style="width:100%">
+<table id="example2" class="table table-sm display" style="width:100%">
     <thead>
         <tr>
             <th>No</th>
@@ -85,8 +85,9 @@
             <td>{{$spt->div_name}}</td>
             <td>{{$spt->year}}</td>
             <td>{{$item->active}}</td>
-            <td><a href="{{ url('strategic_priority/edit/'.$item->id.'') }}" class="btn btn-primary btn-sm">Edit</a> &nbsp; 
-                <a href="{{ url('strategic_priority/destroy/'.$item->id.'') }}" class="btn btn-danger delete-confirm btn-sm">Delete</a>
+            <td>
+                {{-- <a href="{{ url('strategic_priority_detail/edit/'.$item->id.'') }}" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a> &nbsp; 
+                <a href="{{ url('strategic_priority_detail/destroy/'.$item->id.'') }}" class="btn btn-danger delete-confirm btn-sm"><i class="fas fa-trash"></i></a> --}}
             </td>
         </tr>
         @endforeach   
