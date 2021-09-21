@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/update/{id}', 'StrategicDirectionController@update');
         Route::get('/destroy/{id}', 'StrategicDirectionController@destroy');
     });
+
     Route::prefix('strategic_priority')->group(function () {
         Route::get('/', 'StrategicPriorityController@index');
         Route::get('/create', 'StrategicPriorityController@create');
@@ -31,6 +32,16 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/update/{id}', 'StrategicPriorityController@update');
         Route::get('/destroy/{id}', 'StrategicPriorityController@destroy');
         Route::post('/finddetail', 'StrategicPriorityController@finddetail');
+    });
+    
+    Route::prefix('activity_division')->group(function () {
+        Route::get('/', 'ActivityDivisionController@index');
+        Route::get('/create', 'ActivityDivisionController@create');
+        Route::post('/store', 'ActivityDivisionController@store');
+        Route::get('/edit/{id}', 'ActivityDivisionController@edit');
+        Route::post('/update/{id}', 'ActivityDivisionController@update');
+        Route::get('/destroy/{id}', 'ActivityDivisionController@destroy');
+        Route::post('/finddetail', 'ActivityDivisionController@finddetail');
     });
 
     Route::prefix('master')->group(function () {

@@ -52,6 +52,12 @@
         <li id="nav-strategic_priority" class="nav-item dropdown">
           <a href="{{ url('strategic_priority') }}" class="text-default"><i class="fas fa-address-card"></i><span>Strategic Priority</span></a>
         </li>
+
+        <li class="menu-header text-default">Activity Division</li>
+        <li id="nav-activity_division" class="nav-item dropdown">
+          <a href="{{ url('activity_division') }}" class="text-default"><i class="fab fa-accusoft"></i><span>Activity Division</span></a>
+        </li>
+
         <li class="menu-header text-default">Master</li>
         <li id="nav-master" class="nav-item dropdown">
           <a href="#" class="nav-link has-dropdown text-default"><i class="fas fa-book"></i><span>Master</span></a>
