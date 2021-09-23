@@ -16,7 +16,7 @@ class DepartemenController extends Controller
     {
         $plant = DB::connection('sqlsrv2')->select("select * from tlkp_plant");
         $departemen = Departemen::
-        leftjoin('divisions', 'divisions.id', '=', 'departemens.div_id')
+        leftjoin('divisions', 'divisions.div_id', '=', 'departemens.div_id')
         ->select('departemens.*', 'divisions.div_name')
         ->where('divisions.div_status', '=', '1')
         ->get();

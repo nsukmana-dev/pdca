@@ -9,18 +9,44 @@ use App\Models\StrategicDirection;
 use App\Models\StrategicPriority;
 use App\Models\StrategicPriorityDetail;
 use App\Models\Division;
+use App\Models\Departemen;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use Session;
+use DB;
 
 class ActivityDivisionController extends Controller
 {
     public function index()
     {
+        // $sp = DB::table('strategic_priorities')
+        // ->join('divisions', 'strategic_priorities.div_id', '=', 'divisions.div_id')
+        // ->join('strategic_directions', 'strategic_priorities.sd_id', '=', 'strategic_directions.id')
+        // ->select('strategic_priorities.*', 'divisions.div_name', 'strategic_directions.strategic_direction')
+        // ->get();
+
+        $sd = DB::table('strategic_directions as a')
+        ->LEFTJOIN('strategic_priorities as b', 'a.id', '=', 'b.sd_id')
+        ->LEFTJOIN('divisions as c', 'b.div_id', '=', 'c.div_id')
+        ->SELECT('a.*', 'b.remain', 'c.div_name')
+        ->get()->toArray();
+        $idarr = array();
+        foreach($sd as $row){
+            $idarr[] = $row->id;
+        }
+        // dd($idarr);
+        $sp = DB::table('strategic_priorities as a')
+        ->JOIN('strategic_priority_details as b', 'a.id', '=', 'b.sp_id')
+        ->JOIN('divisions as c', 'a.div_id', '=', 'c.div_id')
+        ->SELECT('a.*', 'b.strategic_priority', 'b.key_result', 'b.weight', 'c.div_name')
+        ->whereIn('a.sd_id', $idarr)
+        ->where('a.div_id', '=', Auth::user()->division)
+        ->where('b.active', '=', 'Y')->get()->toArray();
+        // dd($sp);
         $ad = ActivityDivision::all();
-        return view('ad.index')->with(['ad' => $ad]);
+        return view('ad.index')->with(['sd' => $sd, 'sp' => $sp, 'ad' => $ad]);
     }
 
     public function create()
@@ -43,7 +69,7 @@ class ActivityDivisionController extends Controller
             return redirect()->back()->withErrors($validator)->withInput($request->all);
         }
         
-        $creator_id = Auth::user()->person_id;
+        $creator_id = Auth::user()->nik;
         Country::create([
             'status' => '1',
             'sort' => '1',

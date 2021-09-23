@@ -9,7 +9,8 @@ use Validator;
 use Hash;
 use Session;
 use App\Models\User;
-  
+use App\Models\Division;
+use App\Models\Departemen;
   
 class AuthController extends Controller
 {
@@ -25,7 +26,9 @@ class AuthController extends Controller
         //     'username' => 'michelle',
         //     'fullname' => 'Michelle Jessica',
         //     'email' => 'michelle.jessica@gs.astra.co.id',
-        //     'password' => $password = Hash::make('admin123'),
+        //     'password' => Hash::make('admin123'),
+        //     'division' => 1,
+        //     'departemen' => 1,
         //     'user_level' => 1,
         //     'is_actived' => 1
         // ]);
@@ -63,7 +66,57 @@ class AuthController extends Controller
   
         if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
             //Login Success
+            // $div = Division::get();
+            // $dep = Departemen::get();
+            // $div2 = Division::where('div_id', '=', Auth::user()->division)->get();
+            // $dep2 = Departemen::where('dep_id', '=', Auth::user()->departemen)->get();
+            // $dep = Departemen::get();
+            // $divdep = array('divdep');
+            // $arr1 = array();
+            // $arr2 = array();
+            // $arr3 = array();
+            // $arr4 = array();
+            // foreach ($div as $row){
+            //     $arr1['id'] = $row['id'];
+            //     $arr1['div_id'] = $row['div_id'];
+            //     $arr1['div_name'] = $row['div_name'];
+            //     $arr1['div_status'] = $row['div_status'];
+            //     $arr1['div_kode'] = $row['div_kode'];
+            //     $divdep['divdep']['alldiv'][] = $arr1;
+            // }
+            // foreach ($dep as $row){
+            //     $arr2['id'] = $row['id'];
+            //     $arr2['dep_id'] = $row['dep_id'];
+            //     $arr2['dep_name'] = $row['dep_name'];
+            //     $arr2['dep_status'] = $row['dep_status'];
+            //     $arr2['plant_id'] = $row['plant_id'];
+            //     $arr2['dep_head'] = $row['dep_head'];
+            //     $arr2['dep_kode'] = $row['dep_kode'];
+            //     $arr2['div_id'] = $row['div_id'];
+            //     $divdep['divdep']['alldep'][] = $arr2;
+            // }
+            // foreach ($div2 as $row){
+            //     $arr3['id'] = $row['id'];
+            //     $arr3['div_id'] = $row['div_id'];
+            //     $arr3['div_name'] = $row['div_name'];
+            //     $arr3['div_status'] = $row['div_status'];
+            //     $arr3['div_kode'] = $row['div_kode'];
+            //     $divdep['divdep']['thisdiv'] = $arr3;
+            // }
+            // foreach ($dep2 as $row){
+            //     $arr4['id'] = $row['id'];
+            //     $arr4['dep_id'] = $row['dep_id'];
+            //     $arr4['dep_name'] = $row['dep_name'];
+            //     $arr4['dep_status'] = $row['dep_status'];
+            //     $arr4['plant_id'] = $row['plant_id'];
+            //     $arr4['dep_head'] = $row['dep_head'];
+            //     $arr4['dep_kode'] = $row['dep_kode'];
+            //     $arr4['div_id'] = $row['div_id'];
+            //     $divdep['divdep']['thisdep'] = $arr4;
+            // }
+            // dd($divdep);
             return redirect()->route('home');
+            // ->withCookie(cookie('divdep', $divdep, time()+86400));
   
         } else { // false
   

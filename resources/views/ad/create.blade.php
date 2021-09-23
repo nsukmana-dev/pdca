@@ -35,7 +35,7 @@
     <div class="container">
     <form method="POST" action="{{ url('activity_division/store') }}">
     <div class="row d-flex justify-content-center">
-        <div class="col-12 col-md-7 col-lg-7">
+        <div class="col-12 col-md-9 col-lg-9">
             <div class="card">
                 @csrf
                 <div class="card-header">
@@ -105,7 +105,7 @@
             </div>
         </div>
 
-        <div class="col-12 col-md-7 col-lg-7">
+        <div class="col-12 col-md-9 col-lg-9">
             <div class="card">
                 <div class="card-header">
                     <h4>Strategic plan</h4>
@@ -152,7 +152,7 @@
             </div>
         </div>
 
-        <div class="col-12 col-md-7 col-lg-7">
+        <div class="col-12 col-md-9 col-lg-9">
             <div class="card">
                 <div class="card-header">
                     <h4>Realization</h4>

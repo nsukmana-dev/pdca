@@ -10,8 +10,9 @@ class HomeController extends Controller
     {
         # code...
     }
-    public function index()
+    public function index(Request $request)
     {
+        // dd($request->cookie('dep'));
         return view('dash');
     }
 }
