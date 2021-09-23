@@ -44,7 +44,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Year</label>
-                        <input name="remain" value="2021" id="remain" readonly type="number" class="form-control form-control-sm" required="">
+                        <input name="year" value="" id="year" readonly type="number" class="form-control form-control-sm" required="">
                     </div>
 
                     <div class="form-group">

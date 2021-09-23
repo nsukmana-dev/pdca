@@ -5,7 +5,7 @@
     <div class="section-header">
     <h1>Activity Division</h1>
     <div class="section-header-breadcrumb">
-        <a href="{{ url('activity_division/create') }}"><span class="badge badge-success">Add <i class="fas fa-plus"></i> </span></a>
+        {{-- <a href="{{ url('activity_division/create') }}"><span class="badge badge-success">Add <i class="fas fa-plus"></i> </span></a> --}}
     </div>
     </div>
     
@@ -17,7 +17,7 @@
             &nbsp;
         <div class="table-responsive">
         <table id="datatable" class="display compact" style="width:100%">
-        <thead>
+        <thead class="thead-info">
             <tr>
                 <th>No</th>
                 <th style="min-width:150px">Strategic direction</th>
@@ -49,7 +49,7 @@
                     <td><a href="#" data-toggle="collapse" data-target="#tbl{{ $item->id }}">Detail</a></td>
                     <td><a href="#" data-toggle="collapse" data-target="#tbl{{ $item->id }}">Detail</a></td>
                     <td><a href="#" data-toggle="collapse" data-target="#tbl{{ $item->id }}">Detail</a></td>
-                    <td>{{ 100-$item->remain }}%</td>
+                    <td class="text-primary">{{ 100-$item->remain }}%</td>
                     <td><a href="#" data-toggle="collapse" data-target="#tbl{{ $item->id }}">Detail</a></td>
                     <td>{{ $item->div_name }}</td>
                     <td>Rp. 0</td>
@@ -73,6 +73,9 @@
                             <td>{{$row->strategic_priority}}</td>
                             <td>{{$row->key_result}}</td>
                             <td></td>
+                            <td>{{$row->weight}}%</td>
+                            <td></td>
+                            <td>{{$row->div_name}}</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -81,10 +84,18 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                                {{-- @if ($row->ad_id == NULL) --}}
+                                    @php
+                                        $url = 0;
+                                    @endphp
+                                {{-- @else
+                                    @php
+                                        $url = $row->ad_id;
+                                    @endphp
+                                @endif --}}
+                                <a href="{{ url('activity_division/insert/'.$item->id.'/'.$row->id.'/'.$url.'') }}" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                            </td>
                         </tr>
                         @endif
                     @endforeach

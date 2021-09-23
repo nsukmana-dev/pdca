@@ -49,6 +49,36 @@ class ActivityDivisionController extends Controller
         return view('ad.index')->with(['sd' => $sd, 'sp' => $sp, 'ad' => $ad]);
     }
 
+    public function insert($sd_id, $sp_id, $ad_id)
+    {
+       if ($ad_id == 0) {
+        return redirect('activity_division/addnew/'.$sd_id.'/'.$sp_id);
+       }
+
+       $sd = DB::table('strategic_directions as a')
+        ->LEFTJOIN('strategic_priorities as b', 'a.id', '=', 'b.sd_id')
+        ->LEFTJOIN('divisions as c', 'b.div_id', '=', 'c.div_id')
+        ->SELECT('a.*', 'b.remain', 'c.div_name')
+        ->get()->toArray();
+    }
+
+    public function addnew ($sd_id, $sp_id)
+    {
+        $sd = DB::table('strategic_directions as a')
+        ->LEFTJOIN('strategic_priorities as b', 'a.id', '=', 'b.sd_id')
+        ->LEFTJOIN('divisions as c', 'b.div_id', '=', 'c.div_id')
+        ->SELECT('a.*', 'b.remain', 'c.div_name')
+        ->get()->toArray();
+
+        $sp = DB::table('strategic_priorities as a')
+        ->JOIN('strategic_priority_details as b', 'a.id', '=', 'b.sp_id')
+        ->JOIN('divisions as c', 'a.div_id', '=', 'c.div_id')
+        ->SELECT('a.*', 'b.strategic_priority', 'b.key_result', 'b.weight', 'c.div_name')
+        ->whereIn('a.sd_id', $sp_id)
+        ->where('a.div_id', '=', Auth::user()->division)
+        ->where('b.active', '=', 'Y')->get()->toArray();
+    }
+
     public function create()
     {
         $sd = StrategicDirection::where('active', 'Yes')->get();
@@ -122,4 +152,5 @@ class ActivityDivisionController extends Controller
 
         return redirect('activity_division')->with('message', 'Success delete this activity division');
     }
+
 }
