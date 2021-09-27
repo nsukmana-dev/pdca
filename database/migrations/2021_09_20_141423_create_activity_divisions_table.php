@@ -24,10 +24,10 @@ class CreateActivityDivisionsTable extends Migration
             $table->string("target_division");
             $table->double("activity_weight");
             $table->decimal("budget", 11, 2);
-            $table->text("relate_division");
+            $table->text("relate_division")->nullable();
             $table->date("due_date_activity");
-            $table->string("achievement_last_year");
-            $table->integer("achievement_last_year_weight");
+            $table->string("achievement_last_year")->nullable();
+            $table->integer("achievement_last_year_weight")->nullable();
             $table->string("status");
             $table->integer("created_by");
             $table->timestamps();

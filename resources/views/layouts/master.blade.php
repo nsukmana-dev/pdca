@@ -33,6 +33,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="{{ asset('assets/js/stisla.js') }}"></script>
+  <link rel="stylesheet" href="{{ asset('node_modules/select2/dist/css/select2.min.css') }}">
 
   <!-- JS Libraies -->
   <script src="{{ asset('node_modules/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
@@ -50,6 +51,7 @@
 
   <!-- Template JS File -->
   <script src="{{ asset('assets/js/scripts.js') }}"></script>
+  <script src="{{ asset('node_modules/select2/dist/js/select2.full.min.js') }}"></script>
   {{-- <script src="{{ asset('assets/js/custom.js') }}"></script> --}}
 
   <!-- Page Specific JS File -->

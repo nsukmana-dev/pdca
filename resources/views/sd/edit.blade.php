@@ -59,7 +59,7 @@
                     </div>
                     <div class="form-group">
                     <label>Weight</label>
-                    <input name="weight" value="{{ $sd['weight'] }}" type="text" class="form-control" required="">
+                    <input name="weight" value="{{ $sd['weight'] }}" type="text" step="0.25"  class="form-control" required="">
                     </div>
                     <div class="form-group">
                     <label>Active</label>

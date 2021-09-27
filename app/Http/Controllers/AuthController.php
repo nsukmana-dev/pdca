@@ -32,6 +32,17 @@ class AuthController extends Controller
         //     'user_level' => 1,
         //     'is_actived' => 1
         // ]);
+        // User::create([
+        //     'nik' => '000111',
+        //     'username' => 'nandar',
+        //     'fullname' => 'Nandar Sukmana',
+        //     'email' => 'nandar.sukmana@gs.astra.co.id',
+        //     'password' => Hash::make('admin123'),
+        //     'division' => 1,
+        //     'departemen' => 1,
+        //     'user_level' => 1,
+        //     'is_actived' => 1
+        // ]);
         return view('auth.login');
     }
   

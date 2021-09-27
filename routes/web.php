@@ -43,6 +43,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/destroy/{id}', 'ActivityDivisionController@destroy');
         Route::get('/insert/{sd_id}/{sp_id}/{ad_id}', 'ActivityDivisionController@insert');
         Route::get('/addnew/{sd_id}/{sp_id}/', 'ActivityDivisionController@addnew');
+        Route::post('/finddetailsp', 'ActivityDivisionController@finddetailsp');
+        Route::post('/finddetailrealization', 'ActivityDivisionController@finddetailrealization');
     });
 
     Route::prefix('master')->group(function () {
@@ -54,6 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/edit/{id}', 'DivisionController@edit');
             Route::post('/update/{id}', 'DivisionController@update');
             Route::get('/destroy/{id}', 'DivisionController@destroy');
+            Route::get('/datajson', 'DivisionController@datajson');
         });
 
         Route::prefix('departemen')->group(function () {

@@ -89,4 +89,14 @@ class DivisionController extends Controller
 
         return redirect('master/division/')->with('message', 'Success delete this division');
     }
+
+    public function datajson()
+    {
+        $div = Division::get();
+        $alldiv = array();
+        foreach($div as $row){
+            $alldiv[] = $row->div_name;
+        }
+        return response()->json($alldiv);
+    }
 }

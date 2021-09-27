@@ -98,7 +98,7 @@
                         </div>
                         <div class="col-2">
                           <label class="sr-only" for="inlineFormInput">Weight</label>
-                          <input name="weight[]" type="number" id="weight1" onchange="weightCount(1)" min="0" class="form-control mb-2" id="inlineFormInput" placeholder="Weight" required>
+                          <input name="weight[]" type="number" id="weight1" onchange="weightCount(1)" step="0.25" min="0" class="form-control mb-2" id="inlineFormInput" placeholder="Weight" required>
                         </div>
                         <div class="col-1">
                             <div class="form-check">
@@ -137,7 +137,7 @@
         $html += '</div>';
         $html += '<div class="col-2">';
         $html += '<label class="sr-only" for="inlineFormInput">Weight</label>';
-        $html += '<input value="0" name="weight[]" id="weight'+$norow+'" onchange="weightCount('+$norow+')" type="number" class="form-control mb-2" id="inlineFormInput" placeholder="Weight" required>';
+        $html += '<input value="0" name="weight[]" id="weight'+$norow+'" onchange="weightCount('+$norow+')" step="0.25" type="number" class="form-control mb-2" id="inlineFormInput" placeholder="Weight" required>';
         $html += '</div>';        
         $html += '<div class="col-1">';
         $html += '<div class="form-check">';

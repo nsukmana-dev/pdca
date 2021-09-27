@@ -44,197 +44,95 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Year</label>
-                        <input name="year" value="" id="year" readonly type="number" class="form-control form-control-sm" required="">
+                        <input name="year" value="{{$sd->year}}" id="year" readonly type="number" class="form-control form-control-sm" required="">
+                        <input type="hidden" name="ad_id" id="ad_id" value="{{ $ad_id }}">
                     </div>
 
                     <div class="form-group">
                         <label>Division</label>
-                        <input name="remain" value="Marketing" id="remain" readonly type="text" class="form-control form-control-sm" required="">
+                        <input name="div_name" value="{{$sd->div_name}}" id="div_name" readonly type="text" class="form-control form-control-sm" required="">
+                        <input name="div_id" value="{{$sd->div_id}}" id="div_id" readonly type="hidden" class="form-control form-control-sm" required="">
                     </div>
 
                     <div class="form-group">
                         <label>Strategic direction</label>
-                        <input name="remain" value="Increase Profitability" id="remain" readonly type="text" class="form-control form-control-sm" required="">
+                        <input name="strategic_direction" value="{{$sd->strategic_direction}}" id="strategic_direction" readonly type="text" class="form-control form-control-sm" required="">
+                        <input name="sd_id" value="{{$sd->id}}" id="sd_id" readonly type="hidden" class="form-control form-control-sm" required="">
                     </div>
                     
                     <div class="form-group">
                         <label>Strategic priority</label>
-                        <input name="remain" value="Increase Import Customer" id="remain" readonly type="text" class="form-control form-control-sm" required="">
+                        <input name="strategic_priority" value="{{$sp->strategic_priority}}" id="strategic_priority" readonly type="text" class="form-control form-control-sm" required="">
+                        <input name="sp_id" value="{{$sp->id}}" id="sp_id" readonly type="hidden" class="form-control form-control-sm" required="">
                     </div>
 
                     <div class="form-group">
                         <label>Key result</label>
-                        <input name="remain" value="Increase min.10% import customer" id="remain" readonly type="text" class="form-control form-control-sm" required="">
+                        <input name="key_result" value="{{$sp->key_result}}" id="key_result" readonly type="text" class="form-control form-control-sm" required="">
                     </div>
 
                     <div class="form-group">
                         <label>Activity - Division</label>
-                        <textarea name="" class="form-control form-control-sm" id="" cols="30" rows="10">new prospect customer</textarea>
+                        <textarea name="activity_division" class="form-control form-control-sm" id="activity_division" cols="30" rows="10" required>coba activity{{ old('activity_division')}}</textarea>
                     </div>
 
                     <div class="form-group">
                         <label>Target - Division</label>
-                        <textarea name="" class="form-control form-control-sm" id="" cols="30" rows="10">new import customer min. 15 cust in 2021</textarea>
+                        <textarea name="target_division" class="form-control form-control-sm" id="target_division" cols="30" rows="10" required>coba target{{ old('target_division')}}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Activity Weight</label>
+                        <input name="activity_weight" value="30" id="activity_weight" type="number" step="0.25" class="form-control form-control-sm" required="">
                     </div>
 
                     <div class="form-group">
                         <label>Budget Rp.</label>
-                        <input name="remain" value="0" id="remain" type="number" class="form-control form-control-sm" required="">
+                        <input name="budget" value="0" id="budget" type="number" class="form-control form-control-sm" required="">
                     </div>
 
                     <div class="form-group">
-                        <label>Related division</label>
-                        <input name="remain" value="0" id="remain" type="number" class="form-control form-control-sm" required="">
+                        <label>Related division</label><br>
+                        <select name="related_division[]" class="form-control form-control-sm select2" multiple="">
+                            @foreach ($div as $item)
+                                <option value="{{ $item->div_name }}">{{ $item->div_name }}</option>
+                            @endforeach
+                            {{-- <option selected>Option 1</option>
+                            <option>Option 2</option>
+                            <option selected>Option 3</option>
+                            <option>Option 4</option>
+                            <option>Option 5</option>
+                            <option>Option 6</option> --}}
+                        </select>                      
                     </div>
-
+                    
                     <div class="form-group">
                         <label>Due date activity</label>
-                        <input name="remain" value="0" id="remain" type="date" class="form-control form-control-sm" required="">
+                        <input name="due_date_activity" value="" onchange="duedate()" id="due_date_activity" type="date" class="form-control form-control-sm" required="">
                     </div>
 
                     <div class="form-group">
-                        <label>Achievment (2020)</label>
-                        <input name="remain" value="new import customer 10 company" readonly id="remain" type="text" class="form-control form-control-sm" required="">
+                        <label>Achievment ({{$sd->year-1}})</label>
+                        <input name="achievement_last_year" value="achievement_last_year" readonly id="remain" type="text" class="form-control form-control-sm" required="">
                     </div>
 
                     <div class="form-group">
-                        <label>%Achievment</label>
-                        <input name="remain" value="26%" id="remain" readonly type="text" class="form-control form-control-sm" required="">
+                        <label>% Achievment</label>
+                        <input name="achievement_last_year_weight" value="0" id="achievement_last_year_weight" readonly type="text" class="form-control form-control-sm" required="">
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="col-12 col-md-9 col-lg-9">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Strategic plan</h4>
-                    <input type="hidden" value="1" id="norow">
-                </div>
-                <div class="card-body" id="bodyRow">
-                    <div class="form-row">
-                        <div class="form-group col-5">
-                            <label>Periode</label>
-                            <input name="periode" value="{{ old('periode') }}" id="periode" type="month" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-5">
-                            <label>Target</label>
-                            <input name="remain" value="new import cust.5 companies" id="remain" type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-2">
-                            <label>Weight(%)</label>
-                            <input name="remain" value="10" id="remain" type="number" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-5">
-                            <input name="periode" value="{{ old('periode') }}" id="periode" type="month" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-5">
-                            <input name="remain" value="new import cust.5 companies" id="remain" type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-2">
-                            <input name="remain" value="10" id="remain" type="number" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-5">
-                            <input name="periode" value="{{ old('periode') }}" id="periode" type="month" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-5">
-                            <input name="remain" value="new import cust.5 companies" id="remain" type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-2">
-                            <input name="remain" value="10" id="remain" type="number" class="form-control form-control-sm" required="">
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer text-right">
-                    <button type="button" class="btn btn-success" onclick="addRow()">Add</button>
-                    {{-- <button type="submit" class="btn btn-primary">Save</button> --}}
-                </div>
+            <div class="card" id="spcard">
+                
             </div>
         </div>
 
         <div class="col-12 col-md-9 col-lg-9">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Realization</h4>
-                    <input type="hidden" value="1" id="norow">
-                </div>
-                <div class="card-body" id="bodyRow">
-                    <h5 class="text-info">January</h5>
-                    <div class="form-row">
-                        <div class="form-group col-8">
-                            <label>Strategic Plan(%)</label>
-                            <input name="periode" value="10" id="periode" readonly type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-4">
-                            <label>Target</label>
-                            <input name="remain" value="new import cust.5 companies" readonly id="remain" type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-8">
-                            <label>Actual Realization(%)</label>
-                            <input name="periode" value="10" id="periode" type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-4">
-                            <label>Target</label>
-                            <input name="remain" value="new import cust.5 companies" id="remain" type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-8">
-                            <label>To Target(%)</label>
-                            <input name="periode" value="100" id="periode" readonly type="text" class="form-control form-control-sm" required="">
-                        </div>
-                    </div>
-                    <hr>
-                    <h5 class="text-info">February</h5>
-                    <div class="form-row">
-                        <div class="form-group col-8">
-                            <label>Strategic Plan(%)</label>
-                            <input name="periode" value="10" id="periode" readonly type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-4">
-                            <label>Target</label>
-                            <input name="remain" value="new import cust.5 companies" readonly id="remain" type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-8">
-                            <label>Actual Realization(%)</label>
-                            <input name="periode" value="10" id="periode" type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-4">
-                            <label>Target</label>
-                            <input name="remain" value="new import cust.5 companies" id="remain" type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-8">
-                            <label>To Target(%)</label>
-                            <input name="periode" value="100" id="periode" readonly type="text" class="form-control form-control-sm" required="">
-                        </div>
-                    </div>
-                    <hr>
-                    <h5 class="text-info">March</h5>
-                    <div class="form-row">
-                        <div class="form-group col-8">
-                            <label>Strategic Plan(%)</label>
-                            <input name="periode" value="10" id="periode" readonly type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-4">
-                            <label>Target</label>
-                            <input name="remain" value="new import cust.5 companies" readonly id="remain" type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-8">
-                            <label>Actual Realization(%)</label>
-                            <input name="periode" value="10" id="periode" type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-4">
-                            <label>Target</label>
-                            <input name="remain" value="new import cust.5 companies" id="remain" type="text" class="form-control form-control-sm" required="">
-                        </div>
-                        <div class="form-group col-8">
-                            <label>To Target(%)</label>
-                            <input name="periode" value="100" id="periode" readonly type="text" class="form-control form-control-sm" required="">
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer text-right">
-                    {{-- <button type="button" class="btn btn-success" onclick="addRow()">Add</button> --}}
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </div>
+            <div class="card" id="realizationcard">
+                
             </div>
         </div>
 
@@ -246,5 +144,49 @@
     $("#nav-activity_division").addClass("active");
     var element = document.body;
     element.classList.add("sidebar-mini");
+    function duedate() {
+        var csrfToken = $("input[name='_token']");
+        var month = $("#due_date_activity").val();
+        var year = $("#year").val();
+        var ad_id = {{$ad_id}}
+        var data = { _token : csrfToken.val(), month : month, year : year, ad_id : ad_id};
+
+        $.post("{{ url('activity_division/finddetailsp') }}", data)
+        .done(function(result)
+        {
+            $('#spcard').html(result);
+        })
+        .fail(function(result)
+        {
+            swal("Call Admin", "Something goes wrong on strategic plan", "error");
+            // alert("Sorry, Something goes wrong on strategic plan!!!");
+            console.log(result);
+        });
+
+        $.post("{{ url('activity_division/finddetailrealization') }}", data)
+        .done(function(result)
+        {
+            $('#realizationcard').html(result);
+        })
+        .fail(function(result)
+        {
+            swal("Call Admin", "Something goes wrong on realization", "error");
+            // alert("Sorry, Something goes wrong on strategic plan!!!");
+            console.log(result);
+        });
+
+    }
+
+    function weightsp(id) {
+        var weight = $("#weight"+id).val()
+        $("#real_periode"+id).val(weight);
+        // alert(target);
+    }
+
+    function targetsp(id) {
+        var target = $("#target"+id).val()
+        $("#real_target"+id).val(target);
+        // alert(target);
+    }
 </script>
 @endsection
