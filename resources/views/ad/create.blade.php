@@ -64,6 +64,7 @@
                         <label>Strategic priority</label>
                         <input name="strategic_priority" value="{{$sp->strategic_priority}}" id="strategic_priority" readonly type="text" class="form-control form-control-sm" required="">
                         <input name="sp_id" value="{{$sp->id}}" id="sp_id" readonly type="hidden" class="form-control form-control-sm" required="">
+                        <input name="spd_id" value="{{$sp->spd_id}}" id="spd_id" readonly type="hidden" class="form-control form-control-sm" required="">
                     </div>
 
                     <div class="form-group">
@@ -118,7 +119,7 @@
 
                     <div class="form-group">
                         <label>% Achievment</label>
-                        <input name="achievement_last_year_weight" value="0" id="achievement_last_year_weight" readonly type="text" class="form-control form-control-sm" required="">
+                        <input name="achievement_last_year_weight" value="26" id="achievement_last_year_weight" readonly type="text" class="form-control form-control-sm" required="">
                     </div>
                 </div>
             </div>
@@ -178,15 +179,38 @@
     }
 
     function weightsp(id) {
-        var weight = $("#weight"+id).val()
-        $("#real_periode"+id).val(weight);
-        // alert(target);
+        var weightsp = 0;
+        $('.weightsp').each(function() {
+            // if ($('.weightsp').val() == 0) {
+                
+            // }else{
+                weightsp += parseInt($(this).val());
+            // }
+        });
+        var activity_weight = parseInt($("#activity_weight").val());
+        if (weightsp > activity_weight) {
+            alert('Weight strategic plan should not be greater than activity weight');
+            $("#weight"+id).val("0");
+            $("#weight"+id).focus();
+        }else{
+            var weight = $("#weight"+id).val();
+            $("#real_periode"+id).val(weight);
+        }
     }
 
     function targetsp(id) {
         var target = $("#target"+id).val()
         $("#real_target"+id).val(target);
         // alert(target);
+    }
+
+    function actualreal(id) {
+        var weight = parseInt($("#weight"+id).val());
+        var actual = parseInt($("#actual"+id).val());
+        var to_taget = ((weight/100) * (actual/100))*100;
+        var to_targetPer = to_taget * 100;
+        alert(to_targetPer);
+        $("#to_target"+id).val(to_targetPer);
     }
 </script>
 @endsection

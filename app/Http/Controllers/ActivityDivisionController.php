@@ -40,7 +40,14 @@ class ActivityDivisionController extends Controller
         $sp = DB::table('strategic_priorities as a')
         ->JOIN('strategic_priority_details as b', 'a.id', '=', 'b.sp_id')
         ->JOIN('divisions as c', 'a.div_id', '=', 'c.div_id')
-        ->SELECT('a.*', 'b.strategic_priority', 'b.key_result', 'b.weight', 'c.div_name')
+        // ->JOIN('strategic_directions as d', 'a.sd_id', '=', 'd.id')
+        ->LEFTJOIN('activity_divisions as e', 'b.id', '=', 'e.spd_id')
+        ->SELECT('a.*', 
+        'b.id as spd_id', 'b.strategic_priority', 'b.key_result', 'b.weight', 
+        'c.div_name',
+        'e.ad_id', 'e.target_division', 'e.budget', 'e.activity_division', 'e.activity_weight', 
+        'e.achievement_last_year_weight', 'e.relate_division', 'e.updated_at'
+         )
         ->whereIn('a.sd_id', $idarr)
         ->where('a.div_id', '=', Auth::user()->division)
         ->where('b.active', '=', 'Y')->get()->toArray();
@@ -49,10 +56,10 @@ class ActivityDivisionController extends Controller
         return view('ad.index')->with(['sd' => $sd, 'sp' => $sp, 'ad' => $ad]);
     }
 
-    public function insert($sd_id, $sp_id, $ad_id)
+    public function insert($sd_id, $sp_id, $spd_id, $ad_id)
     {
        if ($ad_id == 0) {
-        return redirect('activity_division/addnew/'.$sd_id.'/'.$sp_id);
+        return redirect('activity_division/addnew/'.$sd_id.'/'.$sp_id.'/'.$spd_id);
        }
 
        $sd = DB::table('strategic_directions as a')
@@ -62,7 +69,7 @@ class ActivityDivisionController extends Controller
         ->get()->toArray();
     }
 
-    public function addnew($sd_id, $sp_id)
+    public function addnew($sd_id, $sp_id, $spd_id)
     {
         $div = Division::where('div_status', 1)->get();
         $sd = DB::table('strategic_directions as a')
@@ -75,8 +82,9 @@ class ActivityDivisionController extends Controller
         $sp = DB::table('strategic_priorities as a')
         ->JOIN('strategic_priority_details as b', 'a.id', '=', 'b.sp_id')
         ->JOIN('divisions as c', 'a.div_id', '=', 'c.div_id')
-        ->SELECT('a.*', 'b.strategic_priority', 'b.key_result', 'b.weight', 'c.div_name')
+        ->SELECT('a.*', 'b.id as spd_id', 'b.strategic_priority', 'b.key_result', 'b.weight', 'c.div_name')
         ->where('a.sd_id', '=', $sp_id)
+        ->where('b.id', '=', $spd_id)
         ->where('a.div_id', '=', Auth::user()->division)
         ->where('b.active', '=', 'Y')->first();
 
@@ -118,6 +126,7 @@ class ActivityDivisionController extends Controller
             'div_id' => 'required',
             'sd_id' => 'required',
             'sp_id' => 'required',
+            'spd_id' => 'required',
             'activity_division' => 'required',
             'target_division' => 'required',
             'activity_weight' => 'required',
@@ -163,6 +172,7 @@ class ActivityDivisionController extends Controller
             'div_id' => $request['div_id'],
             'sd_id' => $request['sd_id'],
             'sp_id' => $request['sp_id'],
+            'spd_id' => $request['spd_id'],
             'activity_division' => $request['activity_division'],
             'target_division' => $request['target_division'],
             'activity_weight' => $request['activity_weight'],

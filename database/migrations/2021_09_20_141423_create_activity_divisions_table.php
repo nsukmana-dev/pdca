@@ -20,10 +20,11 @@ class CreateActivityDivisionsTable extends Migration
             $table->integer("div_id");
             $table->integer("sd_id");
             $table->integer("sp_id");
+            $table->integer("spd_id");
             $table->string("activity_division");
             $table->string("target_division");
             $table->double("activity_weight");
-            $table->decimal("budget", 11, 2);
+            $table->integer("budget");
             $table->text("relate_division")->nullable();
             $table->date("due_date_activity");
             $table->string("achievement_last_year")->nullable();

@@ -8,16 +8,16 @@
     <div class="form-row">
         <div class="form-group col-4">
             <label>Strategic Plan(%)</label>
-            <input name="real_periode[]" value="10" id="real_periode{{$i}}" readonly type="number" step="0.25" class="form-control form-control-sm" required="">
+            <input name="real_periode[]" value="0" id="real_periode{{$i}}" readonly type="number" step="0.25" class="form-control form-control-sm" required="">
             <input type="hidden" name="real_strategic_plan_id[]" id="real_strategic_plan_id" value="{{ $ad_id }}-{{$i}}">
         </div>
         <div class="form-group col-8">
             <label>Target</label>
-            <input name="real_target[]" value="jadi superman {{$i}}" readonly id="real_target{{$i}}" type="text" class="form-control form-control-sm" required="">
+            <input name="real_target[]" value="" readonly id="real_target{{$i}}" type="text" class="form-control form-control-sm" required="">
         </div>
         <div class="form-group col-4">
             <label>Actual Realization(%)</label>
-            <input name="actual[]" value="10" id="actual" type="number" step="0.25" class="form-control form-control-sm" required="">
+            <input name="actual[]" value="0" onchange="actualreal({{$i}})" id="actual{{$i}}" type="number" step="0.25" class="form-control form-control-sm" required="">
         </div>
         <div class="form-group col-8">
             <label>Realization</label>
@@ -25,7 +25,7 @@
         </div>
         <div class="form-group col-4">
             <label>To Target(%)</label>
-            <input name="to_target[]" value="100" onchange="to_target({{$i}})" id="to_target" readonly type="number" step="0.25" class="form-control form-control-sm" required="">
+            <input name="to_target[]" value="0" id="to_target{{$i}}" readonly type="number" step="0.25" class="form-control form-control-sm" required="">
         </div>
         <div class="form-group" id="to_target{{$i}}">
             <input type="hidden" name="issue[]" value="">

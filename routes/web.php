@@ -41,8 +41,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/edit/{id}', 'ActivityDivisionController@edit');
         Route::post('/update/{id}', 'ActivityDivisionController@update');
         Route::get('/destroy/{id}', 'ActivityDivisionController@destroy');
-        Route::get('/insert/{sd_id}/{sp_id}/{ad_id}', 'ActivityDivisionController@insert');
-        Route::get('/addnew/{sd_id}/{sp_id}/', 'ActivityDivisionController@addnew');
+        Route::get('/insert/{sd_id}/{sp_id}/{spd_id}/{ad_id}', 'ActivityDivisionController@insert');
+        Route::get('/addnew/{sd_id}/{sp_id}/{spd_id}/', 'ActivityDivisionController@addnew');
         Route::post('/finddetailsp', 'ActivityDivisionController@finddetailsp');
         Route::post('/finddetailrealization', 'ActivityDivisionController@finddetailrealization');
     });

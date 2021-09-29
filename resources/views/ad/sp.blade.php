@@ -17,7 +17,7 @@
         </div>
         <div class="form-group col-2">
             <label>Weight(%)</label>
-            <input name="weight[]" value="10" step="0.25" onchange="weightsp({{$i}})" id="weight{{$i}}" type="number" class="form-control form-control-sm" required="">
+            <input name="weight[]" value="0" step="0.25" onchange="weightsp({{$i}})" id="weight{{$i}}" type="number" class="form-control form-control-sm weightsp" required="">
         </div>
         <div class="form-group col-2">&nbsp;</div>
         @endfor
