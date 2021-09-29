@@ -209,7 +209,7 @@
         var actual = parseInt($("#actual"+id).val());
         var to_taget = (((weight/100) * (actual/100))*100)*100;
         // var to_targetPer = to_taget * 100;
-        alert(to_taget);
+        // alert(to_taget);
         $("#to_target"+id).val(Math.floor(to_taget));
     }
 </script>
