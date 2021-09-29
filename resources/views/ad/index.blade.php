@@ -96,9 +96,9 @@
                                         $url = $row->ad_id;
                                     @endphp
                                 @endif --}}
-                                @if ($row->ad_id == '')
+                                {{-- @if ($row->ad_id == '')
                                     <a href="{{ url('activity_division/insert/'.$item->id.'/'.$row->id.'/'.$row->spd_id.'/'.$url.'') }}" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>                                    
-                                @endif
+                                @endif --}}
                             </td>
                             <td>{{$row->strategic_priority}}</td>
                             <td>{{$row->key_result}}</td>
