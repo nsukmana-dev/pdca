@@ -96,7 +96,9 @@
                                         $url = $row->ad_id;
                                     @endphp
                                 @endif --}}
-                                <a href="{{ url('activity_division/insert/'.$item->id.'/'.$row->id.'/'.$row->spd_id.'/'.$url.'') }}" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                @if ($row->ad_id == '')
+                                    <a href="{{ url('activity_division/insert/'.$item->id.'/'.$row->id.'/'.$row->spd_id.'/'.$url.'') }}" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>                                    
+                                @endif
                             </td>
                             <td>{{$row->strategic_priority}}</td>
                             <td>{{$row->key_result}}</td>
@@ -113,7 +115,9 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <a href="{{ url('activity_division/insert/'.$item->id.'/'.$row->id.'/'.$row->spd_id.'/'.$url.'') }}" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                @if ($row->ad_id == '')
+                                    <a href="{{ url('activity_division/insert/'.$item->id.'/'.$row->id.'/'.$row->spd_id.'/'.$url.'') }}" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>                                    
+                                @endif
                             </td>
                             @php
                                 $activityweight += $row->activity_weight == NULL ? 0 : $row->activity_weight;
