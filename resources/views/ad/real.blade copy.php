@@ -21,7 +21,7 @@
         </div>
         <div class="form-group col-8">
             <label>Realization</label>
-            <input name="realization[]" value="" id="realization" type="text" class="form-control form-control-sm" required="">
+            <input name="realization[]" value="jadi spiderman {{$i}}" id="realization" type="text" class="form-control form-control-sm" required="">
         </div>
         <div class="form-group col-4">
             <label>To Target(%)</label>

@@ -13,7 +13,7 @@
         </div>
         <div class="form-group col-4">
             <label>Target</label>
-            <input name="target[]" value="" onchange="targetsp({{$i}})" id="target{{$i}}" type="text" class="form-control form-control-sm" required="">
+            <input name="target[]" value="jadi superman {{$i}}" onchange="targetsp({{$i}})" id="target{{$i}}" type="text" class="form-control form-control-sm" required="">
         </div>
         <div class="form-group col-2">
             <label>Weight(%)</label>

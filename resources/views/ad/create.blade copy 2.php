@@ -74,17 +74,17 @@
 
                     <div class="form-group">
                         <label>Activity - Division</label>
-                        <textarea name="activity_division" class="form-control form-control-sm" id="activity_division" cols="30" rows="10" required>{{ old('activity_division')}}</textarea>
+                        <textarea name="activity_division" class="form-control form-control-sm" id="activity_division" cols="30" rows="10" required>coba activity{{ old('activity_division')}}</textarea>
                     </div>
 
                     <div class="form-group">
                         <label>Target - Division</label>
-                        <textarea name="target_division" class="form-control form-control-sm" id="target_division" cols="30" rows="10" required>{{ old('target_division')}}</textarea>
+                        <textarea name="target_division" class="form-control form-control-sm" id="target_division" cols="30" rows="10" required>coba target{{ old('target_division')}}</textarea>
                     </div>
 
                     <div class="form-group">
                         <label>Activity Weight</label>
-                        <input name="activity_weight" value="0" id="activity_weight" type="number" step="0.25" class="form-control form-control-sm" required="">
+                        <input name="activity_weight" value="30" id="activity_weight" type="number" step="0.25" class="form-control form-control-sm" required="">
                     </div>
 
                     <div class="form-group">
