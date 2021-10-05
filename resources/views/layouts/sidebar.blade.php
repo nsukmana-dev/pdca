@@ -7,7 +7,7 @@
       <img class="d-inline-block" width="32px" height="30.61px" src="{{ asset('img/logo/logo3.png') }}" alt="">
     </div>
     <ul class="sidebar-menu">
-        <li><a class="nav-link text-default" href="{{ url('/') }}"><i class="fas fa-home"></i> <span>Home</span></a></li>
+        <li><a class="nav-link text-default" href="{{ url('/') }}"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
         
         {{-- <li class="menu-header text-danger">Master</li> --}}
         {{-- <li id="nav-master" class="nav-item dropdown">
@@ -32,18 +32,17 @@
           </ul>
         </li> --}}
 
-        {{-- <li class="menu-header text-default">User</li>
+        <li class="menu-header text-default">Transaction</li>
         <li id="nav-user" class="nav-item dropdown">
-          <a href="#" class="nav-link has-dropdown text-default"><i class="fas fa-users"></i><span>User</span></a>
+          <a href="#" class="nav-link has-dropdown text-default"><i class="fas fa-users"></i><span>Transaction</span></a>
           <ul class="dropdown-menu">
-            <li id="nav-user-person"><a class="nav-link" href="{{ url('user/person') }}">Person</a></li>
-            <li id="nav-user-usertype"><a class="nav-link" href="{{ url('user/usertype') }}">User Type</a></li>
-            <li id="nav-user-usertypemodule"><a class="nav-link" href="{{ url('user/usertypemodule') }}">User Type Module</a></li>
-            <li id="nav-user-useraccount"><a class="nav-link" href="{{ url('user/useraccount') }}">User Account</a></li>
+            <li id="nav-user-person"><a class="nav-strategic_direction" href="{{ url('strategic_direction') }}">Strategic Direction</a></li>
+            <li id="nav-user-person"><a class="nav-strategic_priority" href="{{ url('strategic_priority') }}">Strategic Priorities</a></li>
+            <li id="nav-user-person"><a class="nav-activity_division" href="{{ url('activity_division') }}">AP Division</a></li>
           </ul>
-        </li> --}}
+        </li>
 
-        <li class="menu-header text-default">Strategic Direction</li>
+        {{-- <li class="menu-header text-default">Strategic Direction</li>
         <li id="nav-strategic_direction" class="nav-item dropdown">
           <a href="{{ url('strategic_direction') }}" class="text-default"><i class="fas fa-shopping-basket"></i><span>Strategic Direction</span></a>
         </li>
@@ -56,7 +55,7 @@
         <li class="menu-header text-default">Activity Division</li>
         <li id="nav-activity_division" class="nav-item dropdown">
           <a href="{{ url('activity_division') }}" class="text-default"><i class="fab fa-accusoft"></i><span>Activity Division</span></a>
-        </li>
+        </li> --}}
 
         <li class="menu-header text-default">Master</li>
         <li id="nav-master" class="nav-item dropdown">
