@@ -32,6 +32,15 @@
           </ul>
         </li> --}}
 
+        <li class="menu-header text-default">Master</li>
+        <li id="nav-master" class="nav-item dropdown">
+          <a href="#" class="nav-link has-dropdown text-default"><i class="fas fa-book"></i><span>Master</span></a>
+          <ul class="dropdown-menu">
+            <li id="nav-master-division"><a class="nav-link" href="{{ url('master/division') }}">Division</a></li>
+            <li id="nav-master-departemen"><a class="nav-link" href="{{ url('master/departemen') }}">Department</a></li>
+          </ul>
+        </li>
+
         <li class="menu-header text-default">Transaction</li>
         <li id="nav-user" class="nav-item dropdown">
           <a href="#" class="nav-link has-dropdown text-default"><i class="fas fa-users"></i><span>Transaction</span></a>
@@ -57,14 +66,6 @@
           <a href="{{ url('activity_division') }}" class="text-default"><i class="fab fa-accusoft"></i><span>Activity Division</span></a>
         </li> --}}
 
-        <li class="menu-header text-default">Master</li>
-        <li id="nav-master" class="nav-item dropdown">
-          <a href="#" class="nav-link has-dropdown text-default"><i class="fas fa-book"></i><span>Master</span></a>
-          <ul class="dropdown-menu">
-            <li id="nav-master-division"><a class="nav-link" href="{{ url('master/division') }}">Division</a></li>
-            <li id="nav-master-departemen"><a class="nav-link" href="{{ url('master/departemen') }}">Departemen</a></li>
-          </ul>
-        </li>
         {{-- <li class="menu-header text-primary">Product</li>
         <li id="nav-product" class="nav-item dropdown">
           <a href="#" class="nav-link has-dropdown text-info"><i class="fas fa-shopping-basket"></i><span>Product</span></a>

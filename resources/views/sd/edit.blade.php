@@ -3,7 +3,7 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-    <h1>Strategic Direction update</h1>
+    <h1>Update Strategic Direction</h1>
     <div class="section-header-breadcrumb">
         <a href="{{ url('strategic_direction') }}"><span class="badge badge-success">Strategic direction home</span></a>
     </div>
