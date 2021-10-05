@@ -31,6 +31,7 @@ class ActivityDivisionController extends Controller
         ->LEFTJOIN('strategic_priorities as b', 'a.id', '=', 'b.sd_id')
         ->LEFTJOIN('divisions as c', 'b.div_id', '=', 'c.div_id')
         ->SELECT('a.*', 'b.remain', 'c.div_name')
+        ->where('c.div_id', '=', Auth::user()->division)
         ->get()->toArray();
         $idarr = array();
         foreach($sd as $row){

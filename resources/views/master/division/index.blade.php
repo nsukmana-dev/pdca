@@ -3,15 +3,13 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-    <h1>Master division</h1>
+    <h1>Master Division</h1>
     <div class="section-header-breadcrumb">
         <a href="{{ url('master/division/create') }}"><span class="badge badge-success">Add <i class="fas fa-plus"></i> </span></a>
     </div>
     </div>
 
     <div class="section-body">
-    <h2 class="section-title">Master division</h2>
-    <p class="section-lead">Table of all master division.</p>
     <div class="row">
         <div class="col-12">
         <div class="card">

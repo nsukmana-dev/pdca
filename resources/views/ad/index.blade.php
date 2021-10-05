@@ -17,7 +17,7 @@
 </script>
 <section class="section">
     <div class="section-header">
-    <h1>Activity Division</h1>
+    <h1>AP Division</h1>
     <div class="section-header-breadcrumb">
         {{-- <a href="{{ url('activity_division/create') }}"><span class="badge badge-success">Add <i class="fas fa-plus"></i> </span></a> --}}
     </div>

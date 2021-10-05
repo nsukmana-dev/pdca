@@ -3,9 +3,9 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-    <h1>Master departemen Create</h1>
+    <h1>Create Master Department</h1>
     <div class="section-header-breadcrumb">
-        <a href="{{ url('master/departemen') }}"><span class="badge badge-success">Master departemen Home</span></a>
+        <a href="{{ url('master/departemen') }}"><span class="badge badge-success">Home Master Department</span></a>
     </div>
     </div>
 
@@ -39,19 +39,19 @@
             <form method="POST" action="{{ url('master/departemen/store') }}">
             @csrf
             <div class="card-header">
-                <h4>Form Input Master departemen</h4>
+                <h4>Form Input Master department</h4>
             </div>
             <div class="card-body">
                 <div class="form-group">
-                <label>Departemen id</label>
+                <label>Department id</label>
                 <input name="dep_id" value="{{ old('dep_id') }}" type="number" class="form-control" required="">
                 </div>
                 <div class="form-group">
-                <label>Departemen Name</label>
+                <label>Department Name</label>
                 <input name="dep_name" value="{{ old('dep_name') }}" type="text" class="form-control" required="">
                 </div>
                 <div class="form-group">
-                <label>Departemen Status</label>
+                <label>Department Status</label>
                 <select name="dep_status" id="dep_status" class="form-control">
                     <option value="1">Active</option>
                     <option value="0">Non Active</option>
@@ -67,11 +67,11 @@
                 </select>
                 </div>
                 <div class="form-group">
-                <label>Departemen head</label>
+                <label>Department head</label>
                 <input name="dep_head" value="{{ old('dep_head') }}" type="text" class="form-control" required="">
                 </div>
                 <div class="form-group">
-                <label>Departemen kode</label>
+                <label>Department kode</label>
                 <input name="dep_kode" value="{{ old('dep_kode') }}" type="text" class="form-control" required="">
                 </div>
                 <div class="form-group">

@@ -3,7 +3,7 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-    <h1>Strategic direction</h1>
+    <h1>Strategic Direction</h1>
     <div class="section-header-breadcrumb">
         <a href="{{ url('strategic_direction/create') }}"><span class="badge badge-success">Add <i class="fas fa-plus"></i> </span></a>
     </div>

@@ -3,7 +3,7 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-    <h1>Activity Division Create</h1>
+    <h1>Create AP Division</h1>
     <div class="section-header-breadcrumb">
         <a href="{{ url('activity_division') }}"><span class="badge badge-success">Activity Division Home</span></a>
     </div>

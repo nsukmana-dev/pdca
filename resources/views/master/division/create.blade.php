@@ -3,9 +3,9 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-    <h1>Master division Create</h1>
+    <h1>Create Master Division</h1>
     <div class="section-header-breadcrumb">
-        <a href="{{ url('master/division') }}"><span class="badge badge-success">Master division Home</span></a>
+        <a href="{{ url('master/division') }}"><span class="badge badge-success">Home Master Division</span></a>
     </div>
     </div>
 
