@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('division');
             $table->string('departemen');
+            $table->string('dept_head')->nullable();
             $table->integer('user_level');
             $table->integer('is_actived');
             $table->rememberToken();
